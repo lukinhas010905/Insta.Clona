@@ -1,0 +1,39 @@
+{
+  "_leia": "Editavel direto no servidor. Nao precisa rebuildar a SPA para trocar marca, preco ou links.",
+
+  "marca": {
+    "nome": "INSTASPY",
+    "sufixo": ".PRO",
+    "nomeCompleto": "InstaSpy.Pro",
+    "logo": "/logo.png"
+  },
+
+  "oferta": {
+    "ancora": "De: R$ 279,90",
+    "preco": "R$ 29,90",
+    "seguranca": "Pagamento seguro",
+    "garantia": "30 dias de garantia",
+    "beneficios": [
+      "Todas as mensagens do direct de {nome}",
+      "Todas as fotos sem censura (incluindo apagadas)",
+      "Localização em tempo real e locais que esteve",
+      "Alerta sempre que {nome} interagir com alguém",
+      "2 bônus surpresa avaliados em R$ 120,00"
+    ],
+    "cta": "Acessar tudo agora mesmo",
+    "rodape": "Acesso liberado em até 2 minutos"
+  },
+
+  "modo_checkout": "externo",
+
+  "checkout": {
+    "padrao": "https://go.atomopay.com.br/co7k1t9bsf",
+    "basico": "",
+    "completo": "",
+    "vitalicio": ""
+  },
+
+  "whatsapp": "5511999999999",
+
+  "mostrar_painel": false
+}

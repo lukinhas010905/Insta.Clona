@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonte do logotipo do Instagram. Servida local: sem dependencia externa. */
+@font-face {
+  font-family: 'Billabong';
+  src: url('/fonts/BILLABONG.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-black text-white font-sans antialiased;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.45);
+    color: #fff;
+  }
+}
+
+/* ==========================================================================
+   BOTAO PRINCIPAL
+   Gradiente puxado da logo nova: roxo -> magenta -> laranja.
+   Mantem o brilho varrendo e o pulso de glow do original.
+   ========================================================================== */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 45%, #f97316 100%);
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse-glow 2.6s ease-in-out infinite;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  animation: btn-shine 3.2s ease-in-out infinite;
+}
+
+.btn-premium:hover {
+  transform: scale(1.02);
+  background-position: 100% 50%;
+  box-shadow:
+    0 0 40px #8b5cf680,
+    0 0 80px #ec48994d,
+    0 0 120px #f9731633;
+}
+
+.btn-premium:active {
+  transform: scale(0.98);
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px #8b5cf666,
+      0 0 46px #ec489933;
+  }
+  50% {
+    box-shadow:
+      0 0 34px #8b5cf699,
+      0 0 70px #ec489959;
+  }
+}
+
+@keyframes btn-shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out both;
+}
+
+.animate-slide-in-top {
+  animation: slide-in-top 0.3s ease-out both;
+}
+
+/* ==========================================================================
+   ACABAMENTO
+   ========================================================================== */
+
+/* texto com o gradiente da logo */
+.texto-neon {
+  background: linear-gradient(100deg, #a78bfa 0%, #e879f9 45%, #fb923c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* fio de luz no topo do card */
+.card-neon {
+  position: relative;
+  background: rgba(12, 16, 17, 0.92);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(31, 31, 46, 0.85);
+  border-radius: 32px;
+  box-shadow: 0 26px 70px -14px rgba(0, 0, 0, 0.9);
+}
+
+.card-neon::before {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.75),
+    rgba(217, 70, 239, 0.75),
+    rgba(249, 115, 22, 0.6),
+    transparent
+  );
+}
+
+/* halo ambiente atras do card */
+.aura-neon {
+  position: absolute;
+  inset: -14%;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 32% at 22% 18%, rgba(139, 92, 246, 0.3), transparent 70%),
+    radial-gradient(34% 30% at 82% 26%, rgba(236, 72, 153, 0.22), transparent 70%),
+    radial-gradient(44% 34% at 52% 88%, rgba(249, 115, 22, 0.16), transparent 72%);
+  filter: blur(46px);
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
